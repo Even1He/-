@@ -1,0 +1,47 @@
+//双指针写法//
+```
+#include<iostream>
+using namespace std;
+int main()
+{
+	char ch[100];
+	int n;
+	cin >> n;
+	
+	for (int i = 0; ; ++i)
+	{
+		if (ch[i] == '\0')
+		{
+			break;
+		}
+		cin >> ch[i];
+	}
+
+	char* p1 = &ch[0];
+	char* p2 = &ch[n - 1];
+	int flag = 1;
+	for (int i = 0; i < n / 2; ++i)
+	{
+		if (*p1 == *p2)
+		{
+			flag = 0;
+			break;
+		}
+		else
+		{
+			p1++;
+			p2--;
+			continue;
+		}
+	}
+	if (flag == 0)
+	{
+		cout << "该字符串不回文";
+	}
+	else if(flag==1)
+	{
+		cout << "该字符串回文";
+	}
+	return 0;
+}
+```
