@@ -1,0 +1,42 @@
+```
+#include<iostream>
+using namespace std;
+int main()
+{
+	int* p1, * p2;
+	int a[10];
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; ++i)
+	{
+		cin >> a[i];
+	}
+
+	p1 = &a[0];
+	p2 = &a[n - 1];
+	int flag = 1;
+	for (int i = 0; i<n/2; ++i)
+	{
+		if (*p1 != *p2)
+		{
+			flag = 0;
+			break;
+		}
+		else
+		{
+			p1++;
+			p2--;
+			continue;
+		}
+	}
+	if (flag == 0)
+	{
+		cout << "数字不回文";
+	}
+	else if (flag == 1)
+	{
+		cout << "数字回文";
+	}
+
+	return 0;
+  ```
