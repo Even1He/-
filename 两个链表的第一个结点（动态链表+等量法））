@@ -1,0 +1,38 @@
+```
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *findFirstCommonNode(ListNode *headA, ListNode *headB) {
+        ListNode*p1=headA;
+        ListNode*p2=headB;      //先让两个指针p1,p2分别在链表A,B上跑//
+
+        for(int i=1;p1!=p2;++i) 
+        {
+            if(p1==NULL)    //当p1跑到终点时(即p1指向链表A的尾结点)//
+            {
+                p1=headB;   //变换跑道(即p1指向链表B)//
+            }else
+            {
+                p1=p1->next;    //p1没有跑到终点时(即p1没有指向链表A或B的尾结点时)，p1就一直跑下去//
+            }
+
+            if(p2==NULL)    //p2的情况与p1一样，只是最初两者的跑道不同而已//
+            {
+                p2=headA;
+            }else
+            {
+                p2=p2->next;
+            }
+        }
+
+        return p2;  //最后返回p1或是p2都是一样的,毕竟你我的结局都一样。for循环是在你与我的情况相同的时候结束的（即p1==p2）//
+    }
+};
+```
