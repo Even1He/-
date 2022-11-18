@@ -1,0 +1,35 @@
+//STL容器——vector（动态数组）//
+```
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+	vector<int>a({ 1,2,3,4,5});
+
+	cout << a.size()<<endl;
+	int i = a.size();
+	cout << "i" << "=" <<i<< endl;
+
+	for (int i = 1; i <= 5; ++i)
+	{
+		a.push_back(6);		//括号内一定要加上在vector容器后面的元素值//
+	}
+	
+	for (auto i = a.begin(); i < a.end(); ++i)		//本来这里的a.begin( )和a.end( )是访问vector容器类各个元素的地址，相当于指针的作用//
+	{
+		cout << *i << ' ';	//STL容器内的值用*i表示,这里的*i可以理解为指针i的值//
+	}
+
+	cout << endl;
+	for (int i = 1; i <= 3; ++i)
+	{
+		a.pop_back();	//a.pop_back( ) 表示默认删除vector容器最后一个元素的值//
+	}
+
+	for (auto i = a.begin(); i < a.end(); ++i)
+	{
+		cout << *i << ' ';
+	}
+	return 0;
+```
