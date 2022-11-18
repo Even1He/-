@@ -1,0 +1,32 @@
+
+//不用二分等其他算法//
+//暴力。一旦数据比较大，就会容易爆掉hh//
+```
+class Solution {
+public:
+    int getMissingNumber(vector<int>& nums) {
+        int cnt=0;  //用cnt记录给定vector中元素的个数//
+        for(auto i=nums.begin();i<nums.end();++i)   //遍历vector//
+        {
+            cnt++;
+        }
+
+        for(int j=0;j<=cnt;++j)     //拿cnt去造一个0,1,2,3,……n-1的大循环//
+        {
+            int flag=0; //建立状态量flag，辅助判断vector中是否缺失0到n-1间的一个数//
+            for(auto k=nums.begin();k<nums.end();++k)   //拿大循环的每一个数再去遍历vector中的每一个元素//
+            {
+                if(*k==j)
+                {
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0)
+            {
+                return j;
+            }
+        }
+    }
+};
+```
